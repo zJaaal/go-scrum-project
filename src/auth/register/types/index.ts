@@ -1,5 +1,5 @@
 export type UserRegister = {
-  userName: string;
+  username: string;
   password: string;
   email: string;
   teamID: string;
@@ -9,19 +9,19 @@ export type UserRegister = {
 };
 
 export enum Roles {
-  TeamLeader = "Team Leader",
   TeamMember = "Team Member",
+  TeamLeader = "Team Leader",
 }
 
 export enum Continents {
-  "America",
-  "Europe",
-  "Other",
+  America = "America",
+  Europe = "Europe",
+  Other = "Other",
 }
 
 export enum Region {
-  "Other",
-  "Latam",
-  "Brasil",
-  "North America",
+  Brasil = "Brasil",
+  Latam = "Latam",
+  NorthAmerica = "North America",
+  Other = "Other",
 }
