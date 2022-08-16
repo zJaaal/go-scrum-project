@@ -1,5 +1,7 @@
 import { useFormik } from "formik";
-import { UserLogin, UserLoginErrors } from "../types";
+import { UserLogin } from "../types";
+
+import "../../auth.styles.css";
 
 const initialValues: UserLogin = {
   email: "",
@@ -25,30 +27,34 @@ const LoginForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container-form">
       <h1>Log In</h1>
-      <div>
+      <div className="form-control-container">
         <label htmlFor="email">Email</label>
         <input
           id="email"
           type={"email"}
           value={values.email}
           onChange={handleChange}
+          className="form-control"
         />
         {errors.email && <div>{errors.email}</div>}
       </div>
-      <div>
+      <div className="form-control-container">
         <label htmlFor="password">Password</label>
         <input
           id="password"
           type="password"
           value={values.password}
           onChange={handleChange}
+          className="form-control"
         />
         {errors.password && <div>{errors.password}</div>}
       </div>
-      <div>
-        <button type="submit">Log In</button>
+      <div className="form-control-container">
+        <button type="submit" className="form-control">
+          Log In
+        </button>
       </div>
     </form>
   );

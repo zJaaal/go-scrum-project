@@ -1,5 +1,6 @@
 import LoginForm from "../components/Form";
-import "./Login.styles.css";
+import "../../auth.styles.css";
+
 const LoginPage = () => {
   return (
     <div className="container">
