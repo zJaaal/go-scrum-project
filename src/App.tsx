@@ -1,6 +1,9 @@
-import LoginPage from "./login/pages/Index";
+import LoginPage from "./auth/login/pages/Index";
+import RegisterPage from "./auth/register/pages/Index";
+
 function App() {
-  return <LoginPage />;
+  return <RegisterPage />;
+  // <LoginPage />;
 }
 
 export default App;
