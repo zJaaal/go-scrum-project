@@ -1,9 +1,12 @@
-import LoginPage from "./auth/login/pages/Index";
-import RegisterPage from "./auth/register/pages/Index";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/pages/AppRouter";
 
 function App() {
-  return <RegisterPage />;
-  // <LoginPage />;
+  return (
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
+  );
 }
 
 export default App;
