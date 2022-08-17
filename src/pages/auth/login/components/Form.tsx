@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { UserLogin } from "../types";
 
 import "../../auth.styles.css";
+import { useNavigate } from "react-router-dom";
 
 const initialValues: UserLogin = {
   email: "",
@@ -9,6 +10,7 @@ const initialValues: UserLogin = {
 };
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const validate = (values: UserLogin) => {
     const errors: any = {};
     if (!values.email) errors.email = "Email is required";
@@ -17,6 +19,9 @@ const LoginForm = () => {
     return errors;
   };
   const onSubmit = () => {
+    navigate("/", {
+      replace: true,
+    });
     localStorage.setItem("logged", "yes");
   };
 
