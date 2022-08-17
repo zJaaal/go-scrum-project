@@ -7,7 +7,7 @@ import { Route } from "../types";
  * (Authenticated for Private or Not for Public) it will set loading to false,
  * otherwise the page will navigate for the proper route
  * @param {Route} routeType
- * @returns the loading state
+ * @returns the checking state
  */
 const useAuthCheck = (routeType: Route): boolean => {
   const [checking, setChecking] = useState(true);
@@ -41,7 +41,7 @@ const useAuthCheck = (routeType: Route): boolean => {
       default:
         return;
     }
-  }, [localStorage, navigate]);
+  }, []);
 
   return checking;
 };
