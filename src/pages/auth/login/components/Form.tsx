@@ -11,6 +11,7 @@ const initialValues: UserLogin = {
 
 const LoginForm = () => {
   const navigate = useNavigate();
+
   const validate = (values: UserLogin) => {
     const errors: any = {};
     if (!values.email) errors.email = "Email is required";
@@ -18,6 +19,7 @@ const LoginForm = () => {
 
     return errors;
   };
+
   const onSubmit = () => {
     navigate("/", {
       replace: true,
