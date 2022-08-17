@@ -1,10 +1,13 @@
+import { AnimatePresence } from "framer-motion";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./router/pages/AppRouter";
 
 function App() {
   return (
     <BrowserRouter>
-      <AppRouter />
+      <AnimatePresence>
+        <AppRouter />
+      </AnimatePresence>
     </BrowserRouter>
   );
 }
