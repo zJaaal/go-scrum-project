@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 
 const useResize = () => {
   const [isPhone, setIsPhone] = useState(window.innerWidth < 900);
-
+  const resizeHandler = () => {
+    setIsPhone(window.innerWidth < 900);
+  };
   useEffect(() => {
-    const resizeHandler = () => {
-      setIsPhone(window.innerWidth < 900);
-    };
-
     window.addEventListener("resize", resizeHandler);
 
     return () => {
@@ -15,7 +13,7 @@ const useResize = () => {
     };
   }, []);
 
-  return isPhone;
+  return { isPhone };
 };
 
 export default useResize;
