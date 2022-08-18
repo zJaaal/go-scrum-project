@@ -106,7 +106,7 @@ const RegisterForm = () => {
           onChange={handleChange}
           className="form-control"
         >
-          {Object.keys(Region).map((region, i) => (
+          {Object.values(Region).map((region, i) => (
             <option value={region} key={i}>
               {region}
             </option>
