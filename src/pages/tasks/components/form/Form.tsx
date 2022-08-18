@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import { Task, TaskPriority, TaskType } from "../../types";
+import { taskSchema } from "../../utils/validations/taskSchema";
 import "./Form.styles.css";
 
 const initialValues: Task = {
@@ -17,10 +18,12 @@ const Form = () => {
     alert(JSON.stringify(values));
   };
 
-  const { handleSubmit, handleChange, values } = useFormik({
-    initialValues,
-    onSubmit,
-  });
+  const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: taskSchema,
+      onSubmit,
+    });
 
   return (
     <section className="task-form">
@@ -33,16 +36,23 @@ const Form = () => {
               type="text"
               name="title"
               onChange={handleChange}
+              onBlur={handleBlur}
               value={values.title}
               placeholder="Title"
+              className={errors.title ? "error" : ""}
             />
+            {errors.title && touched.title && (
+              <span className="error-message">{errors.title}</span>
+            )}
           </div>
           <div>
             <select
               name="type"
               id="type"
               onChange={handleChange}
+              onBlur={handleBlur}
               value={values.type}
+              className={errors.type ? "error" : ""} //Im not really validating this, but ill let that for example
             >
               <option value={""} disabled>
                 Status
@@ -53,13 +63,18 @@ const Form = () => {
                 </option>
               ))}
             </select>
+            {errors.type && touched.type && (
+              <span className="error-message">{errors.type}</span>
+            )}
           </div>
           <div>
             <select
               name="priority"
               id="priority"
               onChange={handleChange}
+              onBlur={handleBlur}
               value={values.priority}
+              className={errors.priority ? "error" : ""} //Im not really validating this, but ill let that for example
             >
               <option value={""} disabled>
                 Priority Level
@@ -70,6 +85,9 @@ const Form = () => {
                 </option>
               ))}
             </select>
+            {errors.priority && touched.priority && (
+              <span className="error-message">{errors.priority}</span>
+            )}
           </div>
         </div>
         <div>
@@ -80,6 +98,7 @@ const Form = () => {
             value={values.description}
           ></textarea>
         </div>
+
         <button type="submit">Create</button>
       </form>
     </section>
