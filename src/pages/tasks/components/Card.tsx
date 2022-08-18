@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { CardProps } from "../types";
+import { Task } from "../types";
 
-const Card: FC<CardProps> = ({
+const Card: FC<Task> = ({
   title,
   datatime,
   creator,

@@ -1,6 +1,6 @@
-import { CardProps } from "../types";
+import { Task } from "../types";
 
-export const cardsData: CardProps[] = [
+export const cardsData: Task[] = [
   {
     id: 1,
     title: "Card 1",

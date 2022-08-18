@@ -3,12 +3,24 @@ export type DescriptionState = {
   showMore: boolean;
 };
 
-export type CardProps = {
+export type Task = {
   id: number;
   title: string;
   datatime: string;
   creator: string;
   description: string;
-  type: string;
-  priority: string;
+  type: TaskType;
+  priority: TaskPriority;
 };
+
+export enum TaskType {
+  New = "New",
+  InProcess = "In Process",
+  Finished = "Finished",
+}
+
+export enum TaskPriority {
+  Low = "Low",
+  Medium = "Medium",
+  High = "High",
+}
