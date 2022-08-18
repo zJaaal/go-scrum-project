@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import Form from "../components/form/Form";
 import useResize from "../hooks/useResize";
 import { cardsData } from "../misc/data";
 import "../Tasks.styles.css";
@@ -6,6 +7,7 @@ const TasksPage = () => {
   const { isPhone } = useResize();
   return (
     <main id="tasks">
+      <Form />
       <section className="wrapper_list">
         <div className="list_header">
           <h2>My Tasks</h2>
