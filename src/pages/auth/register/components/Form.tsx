@@ -115,7 +115,7 @@ const RegisterForm = () => {
       </div>
       <div className="form-control-container">
         <button type="submit" className="form-control">
-          Log In
+          Register
         </button>
       </div>
     </form>
