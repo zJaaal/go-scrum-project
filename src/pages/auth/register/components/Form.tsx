@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Continents, Region, Roles, UserRegister } from "../types";
+import registerSchema from "../types/registerSchema";
 
 const initialValues: UserRegister = {
   username: "",
@@ -13,14 +15,8 @@ const initialValues: UserRegister = {
 };
 
 const RegisterForm = () => {
-  const validate = (values: UserRegister) => {
-    const errors: any = {};
-    if (!values.username) errors.username = "Username is required";
-    if (!values.email) errors.email = "Email is required";
-    if (!values.password) errors.password = "Password is required";
+  const navigate = useNavigate();
 
-    return errors;
-  };
   const onSubmit = (values: UserRegister) => {
     alert(JSON.stringify(values));
   };
@@ -29,7 +25,7 @@ const RegisterForm = () => {
     useFormik<UserRegister>({
       initialValues,
       onSubmit,
-      validate,
+      validationSchema: registerSchema,
     });
   return (
     <form onSubmit={handleSubmit} className="container-form">
@@ -117,6 +113,18 @@ const RegisterForm = () => {
         <button type="submit" className="form-control">
           Register
         </button>
+      </div>
+      <div
+        style={{
+          color: "#ff452b",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "5px",
+          cursor: "pointer",
+        }}
+        onClick={() => navigate("/auth")}
+      >
+        Already have an account?
       </div>
     </form>
   );

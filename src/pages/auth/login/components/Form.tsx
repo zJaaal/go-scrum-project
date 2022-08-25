@@ -3,6 +3,7 @@ import { UserLogin } from "../types";
 
 import "../../auth.styles.css";
 import { useNavigate } from "react-router-dom";
+import loginSchema from "../types/loginSchema";
 
 const initialValues: UserLogin = {
   email: "",
@@ -11,14 +12,6 @@ const initialValues: UserLogin = {
 
 const LoginForm = () => {
   const navigate = useNavigate();
-
-  const validate = (values: UserLogin) => {
-    const errors: any = {};
-    if (!values.email) errors.email = "Email is required";
-    if (!values.password) errors.password = "Password is required";
-
-    return errors;
-  };
 
   const onSubmit = () => {
     navigate("/", {
@@ -30,7 +23,7 @@ const LoginForm = () => {
   const { values, handleChange, handleSubmit, errors } = useFormik<UserLogin>({
     initialValues,
     onSubmit,
-    validate,
+    validationSchema: loginSchema,
   });
 
   return (
@@ -62,6 +55,18 @@ const LoginForm = () => {
         <button type="submit" className="form-control">
           Log In
         </button>
+      </div>
+      <div
+        style={{
+          color: "#ff452b",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "5px",
+          cursor: "pointer",
+        }}
+        onClick={() => navigate("/auth/register")}
+      >
+        Don't have an account?
       </div>
     </form>
   );
