@@ -1,11 +1,12 @@
 export type UserRegister = {
-  username: string;
+  userName: string;
   password: string;
   email: string;
   teamID: string;
   role: Roles;
   continent: Continents;
   region: Region;
+  check: boolean;
 };
 
 export enum Roles {

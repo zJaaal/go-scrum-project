@@ -5,6 +5,19 @@ import "../../auth.styles.css";
 import { useNavigate } from "react-router-dom";
 import loginSchema from "../types/loginSchema";
 
+// fetch("https://goscrum-api.alkemy.org/auth/login", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     userName: values.userName,
+//     password: values.password,
+//   }),
+// })
+//   .then((res) => res.json())
+//   .then((res) => console.log(res));
+
 const initialValues: UserLogin = {
   email: "",
   password: "",

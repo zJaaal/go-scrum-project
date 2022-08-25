@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Loading from "../../components/Loading";
 import LoginPage from "../../pages/auth/login/pages/Login";
 import RegisterPage from "../../pages/auth/register/pages/Register";
+import Registered from "../../pages/auth/registered/pages/Registered";
 
 //This only imports the NotFound component when its called and it must be rendered inside a Suspense component
 
@@ -13,6 +14,7 @@ const AuthRoutes = () => {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/registered/:teamID" element={<Registered />} />
       <Route
         path="*"
         element={
