@@ -6,8 +6,8 @@ const Card: FC<Task> = ({
   datatime,
   creator,
   description,
-  type,
-  priority,
+  status,
+  importance,
 }) => {
   return (
     <div className="card">
@@ -15,8 +15,8 @@ const Card: FC<Task> = ({
       <h3>{title}</h3>
       <h6>{datatime}</h6>
       <h5>{creator}</h5>
-      <button type="button">{type}</button>
-      <button type="button">{priority}</button>
+      <button type="button">{status}</button>
+      <button type="button">{importance}</button>
       <p>{description}</p>
     </div>
   );
