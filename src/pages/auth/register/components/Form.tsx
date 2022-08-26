@@ -24,7 +24,7 @@ const RegisterForm = () => {
     if (!values.check) values.teamID = "";
 
     const teamID = !values.teamID ? uuidv4() : values.teamID;
-    fetch("https://goscrum-api.alkemy.org/auth/register", {
+    fetch(`${import.meta.env.VITE_MAIN_URL}auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
