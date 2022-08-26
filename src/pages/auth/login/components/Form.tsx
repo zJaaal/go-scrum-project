@@ -14,7 +14,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = () => {
-    fetch("https://goscrum-api.alkemy.org/auth/login", {
+    fetch(`${import.meta.env.VITE_MAIN_URL}auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
