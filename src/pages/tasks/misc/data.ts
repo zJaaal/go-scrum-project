@@ -1,4 +1,4 @@
-import { Task } from "../types";
+import { Task, TaskImportance, TaskStatus } from "../types";
 
 export const cardsData: Task[] = [
   {
@@ -7,8 +7,8 @@ export const cardsData: Task[] = [
     datatime: "24/03/2022 16:12 hs.",
     creator: "Facundo",
     description: "lorem ipsum dolor sit",
-    type: "new",
-    priority: "high",
+    status: TaskStatus.New,
+    importance: TaskImportance.High,
   },
   {
     id: 2,
@@ -16,8 +16,8 @@ export const cardsData: Task[] = [
     datatime: "24/03/2022 16:12 hs.",
     creator: "Facundo",
     description: "lorem ipsum dolor sit",
-    type: "new",
-    priority: "high",
+    status: TaskStatus.New,
+    importance: TaskImportance.High,
   },
   {
     id: 3,
@@ -25,8 +25,8 @@ export const cardsData: Task[] = [
     datatime: "24/03/2022 16:12 hs.",
     creator: "Facundo",
     description: "lorem ipsum dolor sit",
-    type: "new",
-    priority: "high",
+    status: TaskStatus.New,
+    importance: TaskImportance.High,
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ export const cardsData: Task[] = [
     datatime: "24/03/2022 16:12 hs.",
     creator: "Facundo",
     description: "lorem ipsum dolor sit",
-    type: "new",
-    priority: "high",
+    status: TaskStatus.New,
+    importance: TaskImportance.High,
   },
 ];
