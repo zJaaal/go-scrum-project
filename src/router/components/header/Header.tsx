@@ -3,7 +3,7 @@ import "./Header.styles.css";
 const Header = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("logged");
+    localStorage.removeItem("token");
     navigate("/auth", {
       replace: true,
     });

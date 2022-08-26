@@ -23,7 +23,7 @@ const useAuthCheck = (routeType: Route): boolean => {
   useEffect(() => {
     switch (routeType) {
       case Route.Public: {
-        if (!localStorage.getItem("logged")) setChecking(false);
+        if (!localStorage.getItem("token")) setChecking(false);
         else
           navigate("/", {
             replace: true,
@@ -31,7 +31,7 @@ const useAuthCheck = (routeType: Route): boolean => {
         break;
       }
       case Route.Private: {
-        if (localStorage.getItem("logged")) setChecking(false);
+        if (localStorage.getItem("token")) setChecking(false);
         else
           navigate("/auth/", {
             replace: true,
