@@ -7,6 +7,7 @@ export const taskSchema: yup.AnyObjectSchema = yup.object().shape({
     .string()
     .min(6, "Title must have at least 6 chars")
     .required(required),
-  type: yup.string().required(required),
-  priority: yup.string().required(required),
+  description: yup.string().required(required),
+  status: yup.string().required(required),
+  importance: yup.string().required(required),
 });

@@ -4,23 +4,23 @@ export type DescriptionState = {
 };
 
 export type Task = {
-  id: number;
   title: string;
   datatime: string;
   creator: string;
+  id: number;
   description: string;
-  type: TaskType;
-  priority: TaskPriority;
+  status: TaskStatus;
+  importance: TaskImportance;
 };
 
-export enum TaskType {
-  New = "New",
-  InProcess = "In Process",
-  Finished = "Finished",
+export enum TaskStatus {
+  New = "NEW",
+  InProcess = "IN PROCESS",
+  Finished = "FINISHED",
 }
 
-export enum TaskPriority {
-  Low = "Low",
-  Medium = "Medium",
-  High = "High",
+export enum TaskImportance {
+  Low = "LOW",
+  Medium = "MEDIUM",
+  High = "HIGH",
 }
