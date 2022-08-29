@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
+import { ToastContainer, toast } from "react-toastify";
 import { Task, TaskImportance, TaskStatus } from "../../types";
 import { taskSchema } from "../../utils/validations/taskSchema";
 import "./Form.styles.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialValues: Task = {
   id: Date.now(),
@@ -33,10 +35,7 @@ const Form = () => {
       .then((res) => res.json())
       .then((res) => {
         resetForm();
-        alert(
-          "Task Created at: " +
-            new Date(res.result.task.createdAt).toLocaleDateString()
-        );
+        toast("Task Created");
       });
   };
 
@@ -135,6 +134,7 @@ const Form = () => {
 
         <button type="submit">Create</button>
       </form>
+      <ToastContainer />
     </section>
   );
 };
