@@ -4,6 +4,7 @@ import { UserLogin } from "../types";
 import "../../auth.styles.css";
 import { useNavigate } from "react-router-dom";
 import loginSchema from "../types/loginSchema";
+import Swal from "sweetalert2";
 
 const initialValues: UserLogin = {
   userName: "",
@@ -26,10 +27,20 @@ const LoginForm = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        localStorage.setItem("token", res.result.token);
-        navigate("/", {
-          replace: true,
-        });
+        if (res.status_code === 200) {
+          localStorage.setItem("token", res.result.token);
+          navigate("/", {
+            replace: true,
+          });
+        } else
+          Swal.fire({
+            title: "Invalid Credentials",
+            text: "Please enter a valid username and password",
+            confirmButtonText: "OK",
+            width: "400px",
+            timer: 10000,
+            timerProgressBar: true,
+          });
       });
   };
 
