@@ -2,9 +2,21 @@ import Card from "../components/Card";
 import Form from "../components/form/Form";
 import useResize from "../hooks/useResize";
 import { cardsData } from "../misc/data";
+import { Task } from "../types";
+import { useState, useEffect } from "react";
 import "../Tasks.styles.css";
 const TasksPage = () => {
   const { isPhone } = useResize();
+  const [list, setList] = useState<Task[]>([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_MAIN_URL}auth/login`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }, []);
   return (
     <main id="tasks">
       <Form />
