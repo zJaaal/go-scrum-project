@@ -29,6 +29,7 @@ const LoginForm = () => {
       .then((res) => {
         if (res.status_code === 200) {
           localStorage.setItem("token", res.result.token);
+          localStorage.setItem("username", res.result.user.userName);
           navigate("/", {
             replace: true,
           });

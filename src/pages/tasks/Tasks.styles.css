@@ -163,8 +163,6 @@
 }
 
 @media (min-width: 900px) {
-
-
   #tasks {
     flex-direction: row;
   }

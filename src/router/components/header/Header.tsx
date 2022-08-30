@@ -4,6 +4,7 @@ const Header = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("username");
     navigate("/auth", {
       replace: true,
     });
@@ -14,7 +15,12 @@ const Header = () => {
         src="https://raw.githubusercontent.com/alkemyTech/Proyecto-GoScrum/unit05x01/public/img/goscrum.png"
         alt="Logo"
       />
-      <div onClick={handleLogout}>X</div>
+      <div style={{ display: "flex" }}>
+        <div style={{ paddingRight: "10px" }}>
+          {localStorage.getItem("username")}
+        </div>
+        <div onClick={handleLogout}>X</div>
+      </div>
     </header>
   );
 };
