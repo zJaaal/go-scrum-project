@@ -6,8 +6,8 @@ import "./Form.styles.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const initialValues: Task = {
-  id: Date.now(),
-  datatime: Date.now().toString(),
+  _id: Date.now(),
+  createdAt: Date.now().toString(),
   creator: "",
   title: "",
   description: "",
@@ -97,8 +97,8 @@ const Form = () => {
           </div>
           <div>
             <select
-              name="priority"
-              id="priority"
+              name="importance"
+              id="importance"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.importance}
