@@ -7,8 +7,8 @@ import { DescriptionState } from "../../types";
  * @returns The description state
  */
 export const limitDescription = (str: string): DescriptionState => {
-  if (str.length > 370)
-    return { string: str.slice(0, 367).concat("..."), showMore: true };
+  if (str.length > 40)
+    return { string: str.slice(0, 37).concat("..."), showMore: true };
 
   return { string: str, showMore: false };
 };
