@@ -19,6 +19,7 @@ const TasksPage = () => {
   const [list, setList] = useState<Task[]>([]);
   const [renderList, setRenderList] = useState<Task[]>([]);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -42,11 +43,26 @@ const TasksPage = () => {
       });
   }, [tasksfromWho]);
 
+  useEffect(() => {
+    //Could use debounce
+    if (!search.length) setRenderList(list);
+
+    setRenderList(
+      list.filter((data) =>
+        data.title.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search]);
+
   const handleChangeImportance = (event: any) => {
     if (event.target.value === "ALL") return setRenderList(list);
     setRenderList(
       list.filter((data) => data.importance.includes(event.currentTarget.value))
     );
+  };
+
+  const handleSearch = (event: any) => {
+    setSearch(event?.target.value);
   };
   return (
     <main id="tasks">
@@ -71,13 +87,15 @@ const TasksPage = () => {
               />
             </RadioGroup>
           </FormControl>
-          {/* <div className="search">
+          <div className="search">
             <input
               type="text"
               placeholder="Search by title..."
               onChange={handleSearch}
+              value={search}
+              name="search"
             />
-          </div> */}
+          </div>
           <select name="importance" onChange={handleChangeImportance}>
             <option value="">Select a priority</option>
             <option value="ALL">All</option>
